@@ -12,11 +12,11 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
 
         FXMLLoader MenuLoader = new FXMLLoader(HelloApplication.class.getResource("Menu.fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(MenuLoader.load(), 480, 600);
         stage.setTitle("MineSweeperFX!");
         stage.setScene(scene);
         stage.show();
+        stage.setResizable(false);
 
     }
 
