@@ -6,9 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import com.example.demo.model.Leaderboard;
@@ -27,10 +25,14 @@ public class MenuController {
 
 
     public void startGame(ActionEvent actionEvent) throws IOException {
-        name.setText("Start!");
         Stage stage = (Stage) name.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("game.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("pregame.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 480, 600);
+        PregameController controller = fxmlLoader.getController();
+        Spinner sizeField=controller.getSizeField();
+        Spinner numberOfMines=controller.getNumberOfMines();
+        sizeField.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,15,8,1));
+        numberOfMines.setValueFactory(new SpinnerValueFactory.IntegerSpinnerValueFactory(1,5,1,1));
         stage.setScene(scene);
     }
 
